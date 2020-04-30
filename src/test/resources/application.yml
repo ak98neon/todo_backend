@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: test
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/todo_db_test
+    username: dbuser
+    password: dbpass
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_default: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  flyway:
+    locations: classpath:/db/migration,classpath:/db/testdata,classpath:/db/test
+
+server:
+  port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,2 +1,28 @@
 server:
   port: 8080
+
+spring:
+  application:
+    name: todo_app
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/todo_db
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_default: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  flyway:
+    locations: classpath:/db/migration,classpath:/db/testdata
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
