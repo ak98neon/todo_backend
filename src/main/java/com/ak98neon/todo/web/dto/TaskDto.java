@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,6 +23,12 @@ public class TaskDto {
                 task.getDescription(),
                 task.getDate().toString()
         );
+    }
+
+    public static List<TaskDto> toListDto(List<Task> tasks) {
+        return tasks.stream()
+                .map(TaskDto::of)
+                .collect(Collectors.toList());
     }
 
     public Task to() {

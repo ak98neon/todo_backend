@@ -4,6 +4,7 @@ import com.ak98neon.todo.model.Audit;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ import java.time.OffsetDateTime;
 @Table
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Task extends Audit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
