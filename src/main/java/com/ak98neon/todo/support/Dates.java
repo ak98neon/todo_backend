@@ -13,14 +13,12 @@ public final class Dates {
     }
 
     public static OffsetDateTime stringToDate(final String dateStr) {
-        final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        final LocalDate localDate = LocalDate.parse(dateStr, dateFormatter);
+        final LocalDate localDate = LocalDate.parse(dateStr, DateTimeFormatter.ISO_DATE_TIME);
         return OffsetDateTime.of(localDate, LocalTime.NOON, ZoneOffset.UTC);
     }
 
     public static LocalDate stringToLocalDate(final String dateStr) {
-        final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        return LocalDate.parse(dateStr, dateFormatter);
+        return LocalDate.parse(dateStr, DateTimeFormatter.ISO_DATE_TIME);
     }
 
     public static boolean isDayOff(final DayOfWeek dayOfWeek) {

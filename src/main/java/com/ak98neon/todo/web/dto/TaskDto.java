@@ -13,12 +13,14 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TaskDto {
+    private Long id;
     private String name;
     private String description;
     private String date;
 
     public static TaskDto of(Task task) {
         return new TaskDto(
+                task.getId(),
                 task.getName(),
                 task.getDescription(),
                 task.getDate().toString()
